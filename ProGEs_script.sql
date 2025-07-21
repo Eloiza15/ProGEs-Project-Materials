@@ -130,9 +130,11 @@ CREATE TABLE avisos (
 -- Tabela de cardápios
 CREATE TABLE cardapios (
     id_cardapio INT PRIMARY KEY AUTO_INCREMENT,
-    data_inicio DATE NOT NULL,
-    data_fim DATE NOT NULL,
-    descricao_dia TEXT,
-    id_gestor INT,
-    FOREIGN KEY (id_gestor) REFERENCES gestores(id_gestor)
+    segunda varchar(30),
+    terca varchar(30),
+    quarta varchar(30),
+    quinta varchar(30),
+    sexta varchar(30)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+select * from cardapios;
