@@ -44,7 +44,11 @@ CREATE TABLE professores (
 CREATE TABLE turmas (
     id_turma INT PRIMARY KEY AUTO_INCREMENT,
     nome_turma VARCHAR(50) NOT NULL,
-    horario VARCHAR(200),
+    segunda varchar(40),
+    terca varchar(40),
+    quarta varchar(40),
+    quinta varchar(40),
+    sexta varchar(40),
     ano_letivo YEAR
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
@@ -136,5 +140,7 @@ CREATE TABLE cardapios (
     quinta varchar(30),
     sexta varchar(30)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+truncate cardapios;
 
 select * from cardapios;
