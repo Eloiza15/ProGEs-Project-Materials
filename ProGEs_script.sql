@@ -44,7 +44,7 @@ CREATE TABLE professores (
 CREATE TABLE turmas (
     id_turma INT PRIMARY KEY AUTO_INCREMENT,
     nome_turma VARCHAR(50) NOT NULL,
-    horario VARCHAR(20),
+    horario VARCHAR(200),
     ano_letivo YEAR
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
