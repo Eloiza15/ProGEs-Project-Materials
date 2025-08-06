@@ -9,7 +9,7 @@ USE sistema_escolar_proges;
 CREATE TABLE usuarios (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,
     nome_usuario VARCHAR(50) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL,
     senha VARCHAR(255) NOT NULL,
     tipo_usuario ENUM('gestor', 'professor', 'aluno') NOT NULL
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
@@ -44,17 +44,12 @@ CREATE TABLE professores (
 CREATE TABLE turmas (
     id_turma INT PRIMARY KEY AUTO_INCREMENT,
     nome_turma VARCHAR(50) NOT NULL,
-    segunda varchar(40),
-    terca varchar(40),
-    quarta varchar(40),
-    quinta varchar(40),
-    sexta varchar(40),
     ano_letivo YEAR
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 -- Tabela de alunos
 CREATE TABLE alunos (
-    id_aluno INT PRIMARY KEY,
+    id_aluno INT PRIMARY KEY auto_increment,
     nome_completo VARCHAR(100) NOT NULL,
     matricula VARCHAR(20) NOT NULL UNIQUE,
     cpf CHAR(11),
@@ -63,9 +58,7 @@ CREATE TABLE alunos (
     endereco TEXT,
     telefone VARCHAR(20),
     email_pessoal VARCHAR(100),
-    turma_id INT,
-    FOREIGN KEY (id_aluno) REFERENCES usuarios(id_usuario),
-    FOREIGN KEY (turma_id) REFERENCES turmas(id_turma)
+    turma_id INT
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 -- Tabela de responsáveis
@@ -140,7 +133,14 @@ CREATE TABLE cardapios (
     quinta varchar(30),
     sexta varchar(30)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+select * from usuarios;
 
-truncate cardapios;
-
-select * from cardapios;
+CREATE TABLE horarios (
+    id_horario INT AUTO_INCREMENT PRIMARY KEY,
+    id_turma INT NOT NULL,
+    dia_semana VARCHAR(10) NOT NULL,      
+    ordem_aula INT NOT NULL,               
+    disciplina VARCHAR(100) NOT NULL,
+    professor VARCHAR(100) NOT NULL,
+    FOREIGN KEY (id_turma) REFERENCES turmas(id_turma) ON DELETE CASCADE
+);
