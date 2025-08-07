@@ -37,7 +37,7 @@ CREATE TABLE professores (
     endereco TEXT,
     formacao VARCHAR(100),
     data_nascimento DATE,
-    FOREIGN KEY (id_professor) REFERENCES usuarios(id_usuario)
+    email_professor varchar(100)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 -- Tabela de turmas
@@ -52,7 +52,7 @@ CREATE TABLE alunos (
     id_aluno INT PRIMARY KEY auto_increment,
     nome_completo VARCHAR(100) NOT NULL,
     matricula VARCHAR(20) NOT NULL UNIQUE,
-    cpf CHAR(11),
+    cpf CHAR(15),
     rg VARCHAR(20),
     data_nascimento DATE,
     endereco TEXT,
@@ -119,9 +119,7 @@ CREATE TABLE avisos (
     id_aviso INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(100) NOT NULL,
     descricao TEXT,
-    data_envio DATE NOT NULL,
-    id_usuario INT,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+    data_envio DATETIME NOT NULL,
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 -- Tabela de cardápios
@@ -143,4 +141,30 @@ CREATE TABLE horarios (
     disciplina VARCHAR(100) NOT NULL,
     professor VARCHAR(100) NOT NULL,
     FOREIGN KEY (id_turma) REFERENCES turmas(id_turma) ON DELETE CASCADE
+);
+
+
+INSERT INTO usuarios (nome_usuario, email, senha, tipo_usuario)
+VALUES ('gestor.eloiza', 'eloiza@escola.com', SHA2('senha123', 256), 'gestor');
+
+SELECT LAST_INSERT_ID();
+
+INSERT INTO gestores (
+    id_gestor,
+    nome_completo,
+    cpf,
+    rg,
+    telefone,
+    endereco,
+    formacao,
+    data_nascimento
+) VALUES (
+    1,
+    'Eloiza Simões',
+    '12345678901',
+    'MG1234567',
+    '(31) 99999-0000',
+    'Rua das Flores, 123',
+    'Pedagogia',
+    '1985-07-20'
 );
