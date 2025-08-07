@@ -138,7 +138,7 @@ select * from usuarios;
 CREATE TABLE horarios (
     id_horario INT AUTO_INCREMENT PRIMARY KEY,
     id_turma INT NOT NULL,
-    dia_semana VARCHAR(10) NOT NULL,      
+    dia_semana VARCHAR(100) NOT NULL,      
     ordem_aula INT NOT NULL,               
     disciplina VARCHAR(100) NOT NULL,
     professor VARCHAR(100) NOT NULL,
