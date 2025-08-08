@@ -29,7 +29,7 @@ CREATE TABLE gestores (
 
 -- Tabela de professores
 CREATE TABLE professores (
-    id_professor INT PRIMARY KEY,
+    id_professor INT PRIMARY KEY auto_increment,
     nome_completo VARCHAR(100) NOT NULL,
     cpf CHAR(16) NOT NULL UNIQUE,
     rg VARCHAR(20),
@@ -119,7 +119,7 @@ CREATE TABLE avisos (
     id_aviso INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(100) NOT NULL,
     descricao TEXT,
-    data_envio DATETIME NOT NULL,
+    data_envio DATETIME NOT NULL
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 -- Tabela de cardápios
@@ -131,7 +131,7 @@ CREATE TABLE cardapios (
     quinta varchar(30),
     sexta varchar(30)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-select * from usuarios;
+
 
 CREATE TABLE horarios (
     id_horario INT AUTO_INCREMENT PRIMARY KEY,
