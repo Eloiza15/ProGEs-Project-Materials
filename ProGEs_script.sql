@@ -142,29 +142,3 @@ CREATE TABLE horarios (
     professor VARCHAR(100) NOT NULL,
     FOREIGN KEY (id_turma) REFERENCES turmas(id_turma) ON DELETE CASCADE
 );
-
-
-INSERT INTO usuarios (nome_usuario, email, senha, tipo_usuario)
-VALUES ('gestor.eloiza', 'eloiza@escola.com', SHA2('senha123', 256), 'gestor');
-
-SELECT LAST_INSERT_ID();
-
-INSERT INTO gestores (
-    id_gestor,
-    nome_completo,
-    cpf,
-    rg,
-    telefone,
-    endereco,
-    formacao,
-    data_nascimento
-) VALUES (
-    1,
-    'Eloiza Simões',
-    '12345678901',
-    'MG1234567',
-    '(31) 99999-0000',
-    'Rua das Flores, 123',
-    'Pedagogia',
-    '1985-07-20'
-);
