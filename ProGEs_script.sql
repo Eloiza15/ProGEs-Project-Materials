@@ -31,7 +31,7 @@ CREATE TABLE gestores (
 CREATE TABLE professores (
     id_professor INT PRIMARY KEY,
     nome_completo VARCHAR(100) NOT NULL,
-    cpf CHAR(11) NOT NULL UNIQUE,
+    cpf CHAR(16) NOT NULL UNIQUE,
     rg VARCHAR(20),
     telefone VARCHAR(20),
     endereco TEXT,
